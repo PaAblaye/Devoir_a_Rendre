@@ -17,9 +17,7 @@ void* unParUn(void* args)
 		
 		printf("thread numero %d \n",id + 1);
 		
-		if((id+1)==n)
-			sem_post(&tabMutex[0]);
-		sem_post(&tabMutex[id +1]);
+		sem_post(&tabMutex[(id+1)%n]);
 	}
 }
 
